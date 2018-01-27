@@ -20,6 +20,7 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
+    //auto add import React from 'react'
     plugins: [
         new webpack.ProvidePlugin({
             "React": "react",

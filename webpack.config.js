@@ -1,33 +1,39 @@
-var webpack = require('webpack');
+const webpack = require('webpack');
 module.exports = {
     entry: [
-        './src/index.js'
+        './src/index.js',
     ],
     output: {
         path: __dirname,
         publicPath: '/',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     module: {
         loaders: [{
             exclude: /node_modules/,
             loader: 'babel-loader',
             query: {
-                presets: ['react', 'es2015', 'stage-1']
-            }
-        }]
+                presets: ['react', 'es2015', 'stage-1'],
+            },
+        },
+        {
+            test: /\.css$/, loader: 'style-loader!css-loader',
+        },
+        ],
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx']
+        extensions: ['*', '.js', '.jsx'],
     },
-    //auto add import React from 'react'
+    // auto add import React from 'react'
     plugins: [
         new webpack.ProvidePlugin({
-            "React": "react",
+            'React': 'react',
         }),
     ],
     devServer: {
         historyApiFallback: true,
-        contentBase: './'
-    }
+        contentBase: './',
+    },
+    loaders: [],
+
 };

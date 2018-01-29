@@ -1,18 +1,30 @@
 // import { Component } from 'react';
+
+/**
+ * Search bar for app
+ */
 class SearchBar extends React.Component {
-    constructor(props){
+    /**
+     * set default state term as ''
+     * @param {*} props
+     */
+    constructor(props) {
         super(props);
 
-        this.state = { term : ''};
+        this.state = {term: ''};
     }
 
     // this is still a function, JS is weird
+    /**
+     * render the page
+     * @return {NULL}
+     */
     render() {
         return (
-            <div>
-                <input onChange={event => this.setState({ term : event.target.value })} />
-                
-                Value of the state: {this.state.term}
+         <div>
+                <input
+                value={this.state.term}
+                onChange={(event) => this.setState({term: event.target.value})} />
             </div>
         );
     }

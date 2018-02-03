@@ -34,6 +34,4 @@ module.exports = {
         historyApiFallback: true,
         contentBase: './',
     },
-    loaders: [],
-
 };
